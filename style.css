@@ -16,6 +16,7 @@ img {
 
 /*===== VARIABLES =========================================*/
 :root {
+  --header-height: 4.5rem; /* root element, 72px divided by 16 (100%) */
   /* colors */
   --hue: 159; /* change hue to test */
   /* HSL color mode */
@@ -68,30 +69,7 @@ h1 {
 }
 
 /*===== LAYOUT ============================================*/
-#header {
-  border-bottom: 1px solid #e4e4e4;
-  margin-bottom: 2rem;
-  display: flex;
-}
-
-nav {
-  height: 4.5rem; /* root element, 72px divided by 16 (100%) */
-  display: flex; /* unlocks justify-content */
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  font: 700 1.31rem 'Poppins', sans-serif;
-  color: var(--title-color);
-}
-
-.logo span {
-  color: var(--base-color);
-}
-
 .container {
-  width: 90%;
   margin-left: 1.5rem;
   margin-right: 1.5rem;
 }
@@ -103,6 +81,40 @@ nav {
 
 .section {
   padding: 5rem 0;
+}
+
+#header {
+  border-bottom: 1px solid #e4e4e4;
+  margin-bottom: 2rem;
+  display: flex;
+
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: var(--body-color);
+}
+
+nav {
+  height: var(--header-height);
+  display: flex; /* unlocks justify-content */
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logo {
+  font: 700 1.31rem 'Poppins', sans-serif;
+  color: var(--title-color);
+}
+
+.logo span {
+  color: var(--base-color);
+}
+
+main {
+  margin-top: var(--header-height);
 }
 
 /*===== HOME ==============================================*/
@@ -150,4 +162,5 @@ nav {
 
 #home .text p {
   margin-bottom: 2rem;
+  max-width: 100%;
 }
