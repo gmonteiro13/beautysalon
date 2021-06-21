@@ -17,7 +17,7 @@ img {
 /*===== VARIABLES =========================================*/
 :root {
   /* colors */
-  --hue: 159;
+  --hue: 159; /* change hue to test */
   /* HSL color mode */
   --base-color: hsl(var(--hue) 36% 57%);
   --base-color-second: hsl(var(--hue) 65% 88%);
@@ -31,23 +31,123 @@ img {
 /*===== BASE ==============================================*/
 body {
   font: 400 1rem 'Dm Sans', sans-serif;
+  color: var(--text-color);
+  background: var(--body-color);
+  -webkit-font-smoothing: antialiased;
 }
 
 h1 {
   font: 700 1.875rem 'Poppins', sans-serif;
+  color: var(--title-color);
+  -webkit-font-smoothing: antialiased;
 }
 
+.button {
+  background-color: var(--base-color);
+  color: var(--text-color-light);
+  height: 3.5rem;
+  display: inline-flex; /* allows item aligning */
+  align-items: center;
+  padding: 0 2rem;
+  border-radius: 0.25rem;
+  font: 500 1rem 'DM Sans', sans-serif;
+  transition: background 0.3s;
+}
+
+.button:hover {
+  background: var(--base-color-alt);
+}
+
+.divider-1 {
+  height: 1px;
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 36%, 57%, 1) 0%,
+    hsla(var(--hue), 65%, 88%, 0.34) 100%
+  );
+}
+
+/*===== LAYOUT ============================================*/
 #header {
-  height: 4.5rem; /* root element, 72px divided by 16 (100%) */
+  border-bottom: 1px solid #e4e4e4;
+  margin-bottom: 2rem;
+  display: flex;
 }
 
 nav {
+  height: 4.5rem; /* root element, 72px divided by 16 (100%) */
   display: flex; /* unlocks justify-content */
+  align-items: center;
   justify-content: space-between;
+}
+
+.logo {
+  font: 700 1.31rem 'Poppins', sans-serif;
+  color: var(--title-color);
+}
+
+.logo span {
+  color: var(--base-color);
 }
 
 .container {
   width: 90%;
   margin-left: 1.5rem;
   margin-right: 1.5rem;
+}
+
+.grid {
+  display: grid; /* unlocks gap */
+  gap: 2rem;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+/*===== HOME ==============================================*/
+#home {
+  overflow: hidden;
+}
+
+#home .container {
+  margin: 0;
+}
+
+#home .image {
+  position: relative;
+}
+
+#home .image::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: var(--base-color-second);
+  position: absolute;
+  top: -16.8%; /* re-check this calculation */
+  left: 16.7%;
+}
+
+#home .image img {
+  position: relative; /* unlocks left, right... */
+  right: 2.93rem;
+}
+
+#home .image img,
+#home .image::before {
+  border-radius: 0.25rem;
+}
+
+#home .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  text-align: center;
+}
+
+#home .text h1 {
+  margin-bottom: 1rem;
+}
+
+#home .text p {
+  margin-bottom: 2rem;
 }
