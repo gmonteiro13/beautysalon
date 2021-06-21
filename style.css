@@ -1,0 +1,26 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+#header {
+  height: 4.5rem; /* root element, 72px divided by 16 (100%) */
+}
+
+nav {
+  display: flex; /* unlocks justify-content */
+  justify-content: space-between;
+}
+
+.container {
+  width: 90%;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
